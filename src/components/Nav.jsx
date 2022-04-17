@@ -7,6 +7,7 @@ const Nav = () => {
             <Patient patient="Alex" />
             <Patient patient="John" />
             <Patient patient="Danylo" />
+            <Patient patient="Login" />
         </div>
     );
 }
