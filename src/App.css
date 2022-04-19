@@ -1,14 +1,9 @@
-/* .app-wrapper{
-  display: grid;
-  grid-template-areas: 
-  "header header" 
-  "nav plot";
-  grid-template-rows: 1fr 20fr;
-  grid-template-columns: 2fr 20fr;
-  grid-gap: 10px;
+.container{
+  display: flex;
+  margin-top: 10px;
 }
 
-.header{
+/*.header{
   grid-area: header;
   background-color: green;
 }

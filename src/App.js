@@ -1,24 +1,30 @@
-import './App.css';
-import Header from './components/Header';
-import Nav from './components/Nav';
-import Plot from './components/Plot';
-import Plot1 from './components/Plot1';
-import Movie from './components/Movie';
-import Login from './components/Login';
-import React, {useEffect} from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { GApiProvider } from 'react-gapi-auth2';
+import React from 'react';
+import Sidebar from "./components/sidebar/Sidebar";
+import Topbar from "./components/topbar/Topbar";
+import Home from "./pages/home/Home";
+import User from "./pages/user/User";
+import UserList from "./pages/userList/UserList";
+import NewUser from "./pages/newUser/NewUser";
+import Plot from "./components/Plot";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const clientConfig = {
-  client_id: '604594895802-m9vu2v8gkfd3a1t44hm4lfc74jimqfkl.apps.googleusercontent.com',
-  cookie_policy: 'single_host_origin',
-  scope: 'https://www.googleapis.com/auth/drive'
-};
+function App() {
+  return (
+    <Router>
+      <Topbar />
+      <div className="container">
+        <Sidebar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/users" element={<UserList />} />
+          <Route path="/user/:userId" element={<User />} />
+          <Route path="/newUser" element={<NewUser />} />
+          <Route path='/user/:userId/visualization' element={<Plot />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
 
-const App = () => (
-  <GApiProvider clientConfig={clientConfig}>
-    <Login />
-  </GApiProvider>
-);
-  
 export default App;
